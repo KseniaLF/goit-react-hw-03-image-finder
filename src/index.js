@@ -7,10 +7,10 @@ import { Layout } from 'components/Constants/Layout.styled';
 import { App } from 'components/App/App';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <Layout>
-      <GlobalStyle />
-      <App />
-    </Layout>
-  </React.StrictMode>
+  // <React.StrictMode>
+  <Layout>
+    <GlobalStyle />
+    <App />
+  </Layout>
+  // </React.StrictMode>
 );
