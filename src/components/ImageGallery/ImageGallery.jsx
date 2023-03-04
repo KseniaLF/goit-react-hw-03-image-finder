@@ -1,6 +1,6 @@
 import { ImageGalleryList } from './ImageGallery.styled';
 
-import Modal from 'components/Modal';
+// import Modal from 'components/Modal';
 import { Component } from 'react';
 import { ImageItem } from 'components/ImageGaleryItem/ImageGaleryItem';
 
