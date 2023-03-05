@@ -6,11 +6,12 @@ import { ImageGallery } from 'components/ImageGallery/ImageGallery';
 import { Loader } from 'components/Loader/Loader';
 import Button from 'components/Button';
 
-export class Info extends Component {
+export class Galery extends Component {
   state = {
     images: [],
     page: 1,
     loading: false,
+    totalHits: null,
   };
 
   async componentDidUpdate(prevProps, _) {
@@ -23,21 +24,22 @@ export class Info extends Component {
           images: [],
           page: 1,
           loading: true,
-          // status: 'pending',
         });
 
         const images = await getImgApiData(nextQueryValue, 1);
 
-        if (images.length === 0) {
+        const { hits, totalHits } = images;
+
+        if (hits.length === 0) {
           this.setState({ loading: false });
           return toast.error(`Sorry, NOT FOUND`);
         }
 
         this.setState({
           page: this.state.page + 1,
-          // status: 'resolved',
-          images: images,
+          images: hits,
           loading: false,
+          totalHits: totalHits,
         });
       }
     } catch (error) {
@@ -53,10 +55,11 @@ export class Info extends Component {
 
       const images = await getImgApiData(nextQueryValue, this.state.page);
 
+      const { hits } = images;
+
       return this.setState({
         page: this.state.page + 1,
-        // status: 'resolved',
-        images: [...this.state.images, ...images],
+        images: [...this.state.images, ...hits],
         loading: false,
       });
     } catch (error) {
@@ -65,7 +68,7 @@ export class Info extends Component {
   };
 
   render() {
-    const { images, loading } = this.state;
+    const { images, loading, totalHits } = this.state;
 
     if (images.length === 0 && loading === true) {
       return <Loader />;
@@ -76,7 +79,10 @@ export class Info extends Component {
         <>
           <ImageGallery images={images} />
 
-          {loading === true ? <Loader /> : <Button onClick={this.onClick} />}
+          {loading && <Loader />}
+          {!loading && images.length < totalHits && (
+            <Button onClick={this.onClick} />
+          )}
         </>
       );
     }

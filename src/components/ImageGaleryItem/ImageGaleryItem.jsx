@@ -21,9 +21,6 @@ export class ImageItem extends Component {
         <div onClick={this.openModal}>
           <img src={image.webformatURL} alt={image.tags} />
         </div>
-        {/* <button type="button" onClick={this.openModal}>
-          OPEN
-        </button> */}
 
         {this.state.isOpen && (
           <Modal
