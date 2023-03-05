@@ -2,7 +2,8 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import { ImageGalleryItem } from 'components/ImageGallery/ImageGallery.styled';
-import Modal from 'components/Modal';
+
+import { Modal } from 'components/Modal/Modal';
 
 export class ImageItem extends Component {
   state = {

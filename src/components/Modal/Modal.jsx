@@ -1,8 +1,12 @@
 import ReactModal from 'react-modal';
 import PropTypes from 'prop-types';
+import './styles.css';
+
+// ReactModal.setAppElement('#main');
 
 const customStyles = {
   content: {
+    tabindex: '10000000000',
     top: '50%',
     left: '50%',
     right: 'auto',
@@ -16,7 +20,7 @@ const customStyles = {
 
 ReactModal.setAppElement('#root');
 
-const Modal = ({ img, openModal, closeModal }) => {
+export const Modal = ({ img, openModal, closeModal }) => {
   return (
     <ReactModal
       isOpen={openModal}
@@ -30,7 +34,7 @@ const Modal = ({ img, openModal, closeModal }) => {
   );
 };
 
-export default Modal;
+// export default Modal;
 
 Modal.propTypes = {
   img: PropTypes.string.isRequired,
