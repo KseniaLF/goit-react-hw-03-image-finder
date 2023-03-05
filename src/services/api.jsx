@@ -7,7 +7,7 @@ export const getImgApiData = async (searchQuery, page) => {
   const response = await axios.get(
     `/?q=${searchQuery}&page=${page}&key=${KEY}&image_type=photo&orientation=horizontal&per_page=3`
   );
-  //   return response.data;
-  console.log(response.data);
+
+  // console.log(response.data);
   return response.data;
 };

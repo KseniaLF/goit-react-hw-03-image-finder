@@ -1,4 +1,5 @@
 import ReactModal from 'react-modal';
+import PropTypes from 'prop-types';
 
 const customStyles = {
   content: {
@@ -16,20 +17,23 @@ const customStyles = {
 ReactModal.setAppElement('#root');
 
 const Modal = ({ img, openModal, closeModal }) => {
-  //   return console.log(openModal);
-  //   return <img src={img.webformatURL} alt={img.tags} />;
   return (
     <ReactModal
       isOpen={openModal}
-      //   onAfterOpen={afterOpenModal}
       onRequestClose={closeModal}
       style={customStyles}
       contentLabel="Example Modal"
     >
       {/* <button onClick={closeModal}>close</button> */}
-      <img src={img.largeImageURL} alt={img.tags} width={900} />
+      <img src={img} alt={img.tags} width={900} />
     </ReactModal>
   );
 };
 
 export default Modal;
+
+Modal.propTypes = {
+  img: PropTypes.string.isRequired,
+  openModal: PropTypes.bool.isRequired,
+  closeModal: PropTypes.func.isRequired,
+};

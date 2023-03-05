@@ -1,6 +1,8 @@
+import { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import { ImageGalleryItem } from 'components/ImageGallery/ImageGallery.styled';
 import Modal from 'components/Modal';
-import { Component } from 'react';
 
 export class ImageItem extends Component {
   state = {
@@ -24,7 +26,7 @@ export class ImageItem extends Component {
 
         {this.state.isOpen && (
           <Modal
-            img={image}
+            img={image.largeImageURL}
             openModal={this.state.isOpen}
             closeModal={this.closeModal}
           />
@@ -33,3 +35,7 @@ export class ImageItem extends Component {
     );
   }
 }
+
+ImageItem.propTypes = {
+  image: PropTypes.object.isRequired,
+};

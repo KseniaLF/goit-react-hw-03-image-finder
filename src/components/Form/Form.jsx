@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { toast } from 'react-toastify';
 import { AiOutlineSearch } from 'react-icons/ai';
+import PropTypes from 'prop-types';
 
 import { Header } from './Form.styled';
 
@@ -47,3 +48,7 @@ export class Form extends Component {
     );
   }
 }
+
+Form.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};

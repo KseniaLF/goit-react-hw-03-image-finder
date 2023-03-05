@@ -1,6 +1,7 @@
 import { Component } from 'react';
-import { getImgApiData } from 'services/api';
+import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
+import { getImgApiData } from 'services/api';
 
 import { ImageGallery } from 'components/ImageGallery/ImageGallery';
 import { Loader } from 'components/Loader/Loader';
@@ -88,3 +89,7 @@ export class Galery extends Component {
     }
   }
 }
+
+Galery.propTypes = {
+  queryValue: PropTypes.string.isRequired,
+};
