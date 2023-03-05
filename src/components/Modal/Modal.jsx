@@ -2,11 +2,8 @@ import ReactModal from 'react-modal';
 import PropTypes from 'prop-types';
 import './styles.css';
 
-// ReactModal.setAppElement('#main');
-
 const customStyles = {
   content: {
-    tabindex: '10000000000',
     top: '50%',
     left: '50%',
     right: 'auto',
