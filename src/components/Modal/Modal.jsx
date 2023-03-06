@@ -1,6 +1,5 @@
 import ReactModal from 'react-modal';
 import PropTypes from 'prop-types';
-import './styles.css';
 
 const customStyles = {
   content: {
@@ -13,6 +12,7 @@ const customStyles = {
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
   },
+  overlay: { zIndex: 1000000 },
 };
 
 ReactModal.setAppElement('#root');
